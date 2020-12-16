@@ -24,6 +24,9 @@ total_puntos = 0
 flg_menu0 = False
 opc_menu0 = 0
 menu_principal = True
+creditos = 0
+apuesta = 0
+
 
 maximo = int(input("Cuantos jugadores jugaran?\n"))
 while participantes != maximo:
@@ -33,13 +36,42 @@ while participantes != maximo:
 for i in range(participantes):
         palo = (random.choice(mazo))
         carta = (random.choice(palo))
+
         print(f"{jugadores[i]} tiene {carta[2]} puntos")
         total_puntos = 0
         total_puntos = carta[2]+total_puntos
         print(total_puntos)
+        creditos = 50
+        apuesta = int(input("Cuanto quieres apostar? "))
+        creditos = creditos - apuesta
+        print(f"Has apostado {apuesta}")
+        print(f"Te quedan {creditos}")
+        print(f"{jugadores[i]} tiene {carta[2]} puntos")
+        total_puntos = 0
+        total_puntos = carta[2]+total_puntos
+        flg_menu0 = False
         while menu_principal:
             opc_menu0 = 0
             while not flg_menu0:
                     while not (opc_menu0 == 1 or opc_menu0 == 2):
                             opc_menu0 = int(input("1) Pedir carta\n2) Plantarse\n"))
+
+                    if (opc_menu0 == 1):
+                            palo = (random.choice(mazo))
+                            carta = (random.choice(palo))
+                            total_puntos = carta[2] + total_puntos
+                            print(f"{jugadores[i]} tiene {carta[2]} puntos")
+                            print(total_puntos)
+                            if(total_puntos > 7.5):
+                                    print("TE HAS PASADO DE 7.5")
+                                    flg_menu0 = True
+                                    break
+                            break
+                    if (opc_menu0 == 2):
+                            print(f"Puntos de {jugadores[i]}: {total_puntos}")
+                            puntos_totales1 = total_puntos
+                            flg_menu0 = True
+                            break
+            if (flg_menu0 == True):
+                    break
         i = i+1
