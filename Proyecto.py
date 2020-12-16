@@ -36,7 +36,7 @@ for i in range(participantes):
         print(f"{jugadores[i]} tiene {carta[2]} puntos")
         total_puntos = 0
         total_puntos = carta[2]+total_puntos
-        print(total_puntos)
+        flg_menu0 = False
         while menu_principal:
             opc_menu0 = 0
             while not flg_menu0:
@@ -48,6 +48,17 @@ for i in range(participantes):
                             total_puntos = carta[2] + total_puntos
                             print(f"{jugadores[i]} tiene {carta[2]} puntos")
                             print(total_puntos)
+                            if(total_puntos > 7.5):
+                                    print("TE HAS PASADO DE 7.5")
+                                    flg_menu0 = True
+                                    break
                             break
+                    if (opc_menu0 == 2):
+                            print(f"Puntos de {jugadores[i]}: {total_puntos}")
+                            puntos_totales1 = total_puntos
+                            flg_menu0 = True
+                            break
+            if (flg_menu0 == True):
+                    break
 
         i = i+1
