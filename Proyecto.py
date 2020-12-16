@@ -20,8 +20,16 @@ import random
 maximo = 0
 participantes = 0
 jugadores = []
+total_puntos = 0
 maximo = int(input("Cuantos jugadores jugaran?\n"))
 while participantes != maximo:
         jugadores.append(input("Jugador : "))
         participantes = participantes+1
         print(jugadores)
+for i in range(participantes):
+        palo = (random.choice(mazo))
+        carta = (random.choice(palo))
+        print(f"{jugadores[i]} tiene {carta[2]} puntos")
+        total_puntos = carta[2]+total_puntos
+        print(total_puntos)
+        i = i+1
