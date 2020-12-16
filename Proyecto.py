@@ -24,6 +24,8 @@ total_puntos = 0
 flg_menu0 = False
 opc_menu0 = 0
 menu_principal = True
+creditos = 0
+apuesta = 0
 
 maximo = int(input("Cuantos jugadores jugaran?\n"))
 while participantes != maximo:
@@ -33,6 +35,11 @@ while participantes != maximo:
 for i in range(participantes):
         palo = (random.choice(mazo))
         carta = (random.choice(palo))
+        creditos = 50
+        apuesta = int(input("Cuanto quieres apostar? "))
+        creditos = creditos - apuesta
+        print(f"Has apostado {apuesta}")
+        print(f"Te quedan {creditos}")
         print(f"{jugadores[i]} tiene {carta[2]} puntos")
         total_puntos = 0
         total_puntos = carta[2]+total_puntos
